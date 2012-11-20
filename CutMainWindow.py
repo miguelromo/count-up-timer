@@ -1,9 +1,8 @@
 #!/usr/bin/python
  
 import sys
-from CutUtil import *
+import time
 from CutUtilQt import *
-from time import time
 from PyQt4 import QtGui
 from PyQt4 import QtCore
 
@@ -19,7 +18,6 @@ class CutMainWindow(QtGui.QMainWindow):
 		self._seconds = 0
 		self._timer = QtCore.QTimer(self)
 		self._timer.setInterval(1000)
-		#self._timer.start()
 		#ui building
 		containerLayout = QtGui.QVBoxLayout()
 		containerLayout.addLayout(self._timeDisplay)
@@ -45,11 +43,15 @@ class CutMainWindow(QtGui.QMainWindow):
 		self._timer.stop()
 
 	def onResetButtonClicked(self):
-		self._timeDisplay.setText('00:00:00')
+		self._seconds = 0
+		self.displayTime()
 	
 	def onTimeout(self):
 		self._seconds += 1
-		print str(self._seconds)
+		self.displayTime()
+		
+	def displayTime(self):
+		self._timeDisplay.setText(time.strftime('%H:%M:%S', time.gmtime(self._seconds)))
 
 application = QtGui.QApplication(sys.argv)
 cutMainWindow = CutMainWindow()
