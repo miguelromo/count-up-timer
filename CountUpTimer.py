@@ -4,7 +4,7 @@ from Tkinter import *
 
 root = Tk()
 
-w = Label(root, text="Hello Tkinter!")
+w = Label(root, text="Count Up Timer")
 w.pack()
 
 root.mainloop()
