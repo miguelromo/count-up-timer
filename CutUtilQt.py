@@ -9,7 +9,7 @@ class TimeDisplay(QtGui.QHBoxLayout):
 		super(TimeDisplay, self).__init__() # See [1]
 		self._lcd = QtGui.QLCDNumber()
 		self._lcd.setNumDigits(8)
-		self._text = "00:04:36" # Change to 00:00:00
+		self._text = "00:00:00"
 		self.setText(self._text)
 		self.addWidget(self._lcd)
 	
