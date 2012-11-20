@@ -9,16 +9,16 @@ class TimeDisplay(QtGui.QHBoxLayout):
 		super(TimeDisplay, self).__init__() # See [1]
 		self._lcd = QtGui.QLCDNumber()
 		self._lcd.setNumDigits(8)
-		self._defaultText = QtCore.QString('00:00:00')
-		self._lcd.display(QtCore.QString('00:04:36')) # Change to default text
+		self._text = "00:04:36" # Change to 00:00:00
+		self.setText(self._text)
 		self.addWidget(self._lcd)
-
-	def getLcd(self):
-		return self._lcd
 	
-	def getDefaultText(self):
-		return self._defaultText
-
+	def setText(self, str):
+		self._text = str
+		self._lcd.display(QtCore.QString(str))
+	
+	def getText(self):
+		return self._text
 
 class ControlPanel(QtGui.QHBoxLayout):
 
@@ -42,4 +42,3 @@ class ControlPanel(QtGui.QHBoxLayout):
 
 
 # [1] http://stackoverflow.com/questions/6002895/understanding-the-underlying-c-c-object-has-been-deleted-error/10889343#10889343
-
