@@ -22,8 +22,8 @@ class CutUtilQt:
 	def getTimeDisplay():
 		containerLayout = QtGui.QHBoxLayout()
 		lcd = QtGui.QLCDNumber()
-		lcd.setNumDigits(8)
-		s = QtCore.QString('00:04:36')
+		lcd.setNumDigits(20)
+		s = QtCore.QString('foo')
 		lcd.display(s)
 		containerLayout.addWidget(lcd)
 		return containerLayout
