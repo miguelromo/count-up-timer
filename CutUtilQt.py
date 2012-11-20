@@ -39,25 +39,6 @@ class ControlPanel(QtGui.QHBoxLayout):
 
 	def getResetButton(self):
 		return self._resetButton
-		
-		
-class StaticMethods:
-		
-	@staticmethod
-	def getControlWidgetsGroup():
-		containerLayout = QtGui.QHBoxLayout()
-		startButton = QtGui.QPushButton("Start")
-		QtCore.QObject.connect(startButton, QtCore.SIGNAL("clicked()"), StaticMethods.theShit)
-		stopButton = QtGui.QPushButton("Stop")
-		resetButton = QtGui.QPushButton("Reset")
-		containerLayout.addWidget(startButton)
-		containerLayout.addWidget(stopButton)
-		containerLayout.addWidget(resetButton)
-		return containerLayout
-	
-	@staticmethod
-	def theShit():
-		print "The Shit"
 
 
 # [1] http://stackoverflow.com/questions/6002895/understanding-the-underlying-c-c-object-has-been-deleted-error/10889343#10889343
